@@ -1,4 +1,6 @@
-# React Starter
+# Practice Code
+
+[![](https://api.travis-ci.org/Codaisseur/code-practice.svg?branch=master)](https://api.travis-ci.org/Codaisseur/code-practice.svg?branch=master)
 
 ## Installation
 
