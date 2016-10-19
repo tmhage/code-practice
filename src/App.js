@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 
 // Actions
 import { appError, clearErrors } from './actions/errors'
+import { logout } from '~/actions/user'
 
 // Components
 // import Header from './components/Layout/Header'
@@ -15,10 +16,6 @@ const clearErrorTimeout = 5000
 export class App extends Component {
   constructor() {
     super()
-
-    this.state = {
-      errors: null
-    }
   }
 
   renderErrors() {
@@ -36,6 +33,7 @@ export class App extends Component {
   render() {
     return (
       <div className="app">
+        <button onClick={this.props.logout}>Logout</button>
         <div>{ this.renderErrors() }</div>
 
         {/*<Header />*/}
@@ -61,6 +59,8 @@ const mapStateToProps = (state) => {
 App.propTypes = {
   appError: PropTypes.func.isRequired,
   clearErrors: PropTypes.func.isRequired,
+  loading: PropTypes.bool.isRequired,
+  errors: PropTypes.array,
 }
 
-export default connect(mapStateToProps, { appError, clearErrors })(App)
+export default connect(mapStateToProps, { appError, clearErrors, logout })(App)
