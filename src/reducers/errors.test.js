@@ -1,4 +1,5 @@
 import chai, { expect } from 'chai'
+import deepFreeze from 'deep-freeze-strict'
 import updateErrors from './errors'
 import { BACKEND_ERROR, CLEAR_ERRORS } from '~/actions/errors'
 
@@ -22,7 +23,35 @@ describe('updateErrors', () => {
     const errorState = updateErrors(null, { type, payload})
 
     it('takes the error state from the payload', () => {
-      expect(errorState).to.eq(payload.errors)
+      expect(errorState).to.deep.eq(payload.errors)
+    })
+
+    context('With errrors already present in the state', () => {
+      const initialState = [
+        'Whoops',
+        'multiple'
+      ]
+
+      const expectedState = [
+        'Whoops',
+        'multiple',
+        'errors!'
+      ]
+
+      const stateChanges = {
+        type: BACKEND_ERROR,
+        payload: { errors: ['errors!'] }
+      }
+
+      // Deep freeze the state objects to make sure they can't be changed
+      deepFreeze(initialState)
+      deepFreeze(stateChanges)
+
+      const updatedState = updateErrors(initialState, stateChanges)
+
+      it('does not change the immutable state objects', () => {
+        expect(updatedState).to.deep.eq(expectedState)
+      })
     })
   })
 
