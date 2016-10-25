@@ -24,35 +24,14 @@ describe('assignments reducer', () => {
         type: ADD_ASSIGNMENT,
         text: 'React'
       })
-    ).to.eql(
-      [
-        {
-          text: 'React'
-        }
-      ]
-    )
+    ).to.eql([{ text: 'React' }])
 
     expect(
-      assignments(
-        [
-          {
-            text: 'Ruby on Rails',
-          }
-        ],
-        {
+      assignments([{ text: 'Ruby on Rails' }], {
           type: ADD_ASSIGNMENT,
           text: 'React'
-        }
-      )
-    ).to.eql(
-      [
-        {
-          text: 'Ruby on Rails',
-        },
-        {
-          text: 'React',
-        }
-      ]
+        })
+      ).to.eql([{ text: 'Ruby on Rails' }, { text: 'React' }]
     )
   })
 })
