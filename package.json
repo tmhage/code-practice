@@ -59,7 +59,7 @@
     "file-loader": "^0.9.0",
     "ignore-styles": "^5.0.1",
     "imports-loader": "^0.6.5",
-    "jsdom": "^9.8.0",
+    "jsdom": "^9.8.3",
     "json-loader": "^0.5.4",
     "mocha": "^3.1.2",
     "mocha-eslint": "^3.0.1",

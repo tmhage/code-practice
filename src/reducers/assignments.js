@@ -1,7 +1,13 @@
 import { combineReducers } from 'redux'
 import { ADD_ASSIGNMENT } from '../actions/assignments'
 
-function assignments(state = [], action) {
+const initialState = [
+  {
+    text: 'Ruby on Rails'
+  }
+]
+
+export default function assignments(state = initialState, action) {
   switch (action.type) {
     case ADD_ASSIGNMENT:
       return [
@@ -14,5 +20,3 @@ function assignments(state = [], action) {
       return state
   }
 }
-
-export default assignments
