@@ -1,0 +1,37 @@
+@import "../../assets/styles/base/colors"
+@import "../../assets/styles/base/mixins"
+
+.header
+  .appbar
+    @include box-shadow
+
+    h1
+      color: $black !important
+      font-size: 1.2rem !important
+
+    .icon-menu > button
+      padding: 0 !important
+      margin-right: 15px !important
+
+      .avatar
+        height: 35px !important
+        width: 35px !important
+
+    & > button > div > svg
+      fill: $black !important
+
+  .drawer
+    display: inline-block
+    float: left
+    margin: 16px 32px 16px 0
+
+    .heading
+      background-color: $red !important
+      color: $white !important
+      font-size: 1.2rem !important
+      margin-top: -8px !important
+      padding-top: 10px !important
+      height: 64px
+
+    .nested-link
+      color: $darkGrey !important
