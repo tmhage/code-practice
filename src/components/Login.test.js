@@ -18,4 +18,15 @@ describe('<LoginContainer />', () => {
   it('should have three input fields', () => {
     expect(wrapper.find('input')).to.have.length(3)
   })
+
+  it('renders children when passed in', () => {
+    const wrapper = shallow(
+      <form>
+        <input id="email" />
+      </form>
+    )
+    expect(wrapper.contains(<input id="email" />)).to.equal(true);
+  })
+
+  
 })
