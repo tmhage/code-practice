@@ -1,7 +1,7 @@
 # Practice Code Online
 _React front end to practice code assignments online._
 
-[![](https://api.travis-ci.org/Codaisseur/code-practice.svg?branch=master)](https://api.travis-ci.org/Codaisseur/code-practice.svg?branch=master)
+[![](https://api.travis-ci.org/Codaisseur/code-practice.svg?branch=master)](https://travis-ci.org/Codaisseur/code-practice)
 
 At [Codaisseur][codaisseur], we focus mostly on classroom learning to teach
 people code because of the high levels of quality and support that we can give
