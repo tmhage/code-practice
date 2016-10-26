@@ -15,7 +15,7 @@ function select(state, ownProps) {
   }
 }
 
-class LoginContainer extends Component {
+export class LoginContainer extends Component {
   componentWillMount() {
     const { isAuthenticated, replace, redirect } = this.props
     if (isAuthenticated) {
