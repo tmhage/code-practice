@@ -7,11 +7,15 @@ import { LoginContainer } from '~/components/Login'
 
 chai.use(chaiEnzyme())
 
+
 describe('<LoginContainer />', () => {
+  const wrapper = shallow(<LoginContainer />);
 
   it('renders a `form`', () => {
-    const wrapper = shallow(<LoginContainer />);
-    expect(wrapper.find('form')).to.have.length(1);
-  });
+    expect(wrapper.find('form')).to.have.length(1)
+  })
 
-});
+  it('should have three input fields', () => {
+    expect(wrapper.find('input')).to.have.length(3)
+  })
+})
