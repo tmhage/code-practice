@@ -8,8 +8,8 @@
     "build": "npm run clean && npm run build:webpack",
     "start": "node devServer.js",
     "lint": "eslint src",
-    "test": "mocha test/setup.js --recursive src/**/**/*.test.js",
-    "test:watch": "mocha -w test/setup.js --recursive src/**/**/*.test.js"
+    "test": "mocha test/setup.js --recursive src/**/*.test.js",
+    "test:watch": "mocha -w test/setup.js --recursive src/**/*.test.js"
   },
   "repository": {
     "type": "git",
