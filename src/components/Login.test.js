@@ -32,5 +32,9 @@ describe('<LoginContainer />', () => {
     expect(wrapper.contains(<input id="email" />)).to.equal(true);
   })
 
-  
+  it('should have props for login and replace', () => {
+    expect(wrapper.props().login).to.be.defined
+    expect(wrapper.props().replace).to.be.defined
+  })
+
 })
