@@ -1,0 +1,21 @@
+@import "./colors"
+
+// $shadow-color: $darkGrey
+// $shadow-color: $grey30
+
+$color: rgba(0, 0, 0, 0.117647)
+
+@mixin box-shadow($shadow-color: $color)
+  -webkit-box-shadow: $shadow-color 0px 1px 6px, $shadow-color 0px 1px 4px !important
+  -moz-box-shadow: $shadow-color 0px 1px 6px, $shadow-color 0px 1px 4px !important
+  box-shadow: $shadow-color 0px 1px 6px, $shadow-color 0px 1px 4px !important
+  background-color: $white !important
+
+@mixin rounded($radius: 0.1em)
+  -webkit-border-radius: $radius
+  -moz-border-radius: $radius
+  border-radius: $radius
+  overflow: hidden
+
+@mixin border-bottom($color: $darkGrey50)
+  border-bottom: 1px solid $color

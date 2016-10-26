@@ -6,16 +6,25 @@ import { connect } from 'react-redux'
 import { appError, clearErrors } from './actions/errors'
 import { logout } from '~/actions/user'
 
+// Material UI Components
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+import muiTheme from './assets/styles/theme'
+
 // Components
-// import Header from './components/Layout/Header'
+import Header from './components/Layout/Header'
 // import Footer from './components/Layout/Footer'
 import Loader from './components/Layout/Loader'
+import RaisedButton from 'material-ui/RaisedButton'
 
 const clearErrorTimeout = 5000
 
 export class App extends Component {
   constructor() {
     super()
+  }
+
+  getChildContext() {
+    return { muiTheme }
   }
 
   renderErrors() {
@@ -32,19 +41,20 @@ export class App extends Component {
 
   render() {
     return (
-      <div className="app">
-        <button onClick={this.props.logout}>Logout</button>
-        <div>{ this.renderErrors() }</div>
+      <MuiThemeProvider muiTheme={muiTheme}>
+        <div className="app">
+          <div>{ this.renderErrors() }</div>
 
-        {/*<Header />*/}
+          <Header />
 
-        <main className="content">
-          {this.props.children}
-        </main>
+          <main className="content">
+            {this.props.children}
+          </main>
 
-        {/*<Footer />*/}
-        { this.props.loading ? <Loader /> : null }
-      </div>
+          {/*<Footer />*/}
+          { this.props.loading ? <Loader /> : null }
+        </div>
+      </MuiThemeProvider>
     )
   }
 }
@@ -63,4 +73,8 @@ App.propTypes = {
   errors: PropTypes.array,
 }
 
-export default connect(mapStateToProps, { appError, clearErrors, logout })(App)
+App.childContextTypes = {
+  muiTheme: React.PropTypes.object.isRequired,
+}
+
+export default connect(mapStateToProps, { appError, clearErrors })(App)
