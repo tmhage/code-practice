@@ -40,4 +40,24 @@ describe('<LoginContainer />', () => {
     expect(wrapper.props().replace).to.be.defined
   })
 
+  describe('form submission', () => {
+    const loginSpy = chai.spy()
+    const wrapper = mount(<LoginContainer login={loginSpy} />)
+
+    it('should call login() upon submitting the form with values', () => {
+      wrapper.ref('email').get(0).value = 'David'
+      wrapper.ref('password').get(0).value = 'verysecret'
+      wrapper.simulate('submit')
+      expect(wrapper.props().login).to.have.been.called
+        .with.exactly('David', 'verysecret')
+    })
+
+    it('should not call login() upon submitting the form without values', () => {
+      loginSpy.reset()
+      wrapper.ref('email').get(0).value = ''
+      wrapper.ref('password').get(0).value = ''
+      wrapper.simulate('submit')
+      expect(wrapper.props().login).not.to.have.been.called()
+    })
+  })
 })
