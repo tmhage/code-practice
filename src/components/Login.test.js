@@ -29,12 +29,10 @@ describe('<LoginContainer />', () => {
   })
 
   it('renders children when passed in', () => {
-    const wrapper = shallow(
-      <form>
-        <input id="email" />
-      </form>
-    )
-    expect(wrapper.contains(<input id="email" />)).to.equal(true);
+    const wrapper = mount(<LoginContainer />)
+    expect(wrapper.ref('email')).to.have.tagName('input')
+    expect(wrapper.ref('email').prop('id')).to.equal('email')
+    expect(wrapper.ref('email').prop('type')).to.equal('email')
   })
 
   it('should have props for login and replace', () => {
